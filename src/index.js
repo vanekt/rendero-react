@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import { Link, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import { IF } from "./components/IF";
 
 function ReactUseState({ getter, setter, initialValue, renderChildren }) {
@@ -37,7 +36,7 @@ function initModule() {
           return render(
             _default || {
               type: "null",
-            },
+            }
           );
         }
         return children[index];
@@ -55,7 +54,7 @@ function initModule() {
         }),
       array_map: (
         { template, items },
-        { render, replacePlaceholders, vars },
+        { render, replacePlaceholders, vars }
       ) => {
         return replacePlaceholders(items, vars).map((item, idx) =>
           render(
@@ -66,27 +65,12 @@ function initModule() {
             {
               idx,
               item,
-            },
-          ),
+            }
+          )
         );
       },
       react_html: ({ value, style }) => (
         <div style={style} dangerouslySetInnerHTML={{ __html: value }} />
-      ),
-      router_link: (props, { renderChildren }) => (
-        <Link {...props}>{renderChildren()}</Link>
-      ),
-      router_nav_link: (props, { renderChildren }) => (
-        <NavLink {...props}>{renderChildren()}</NavLink>
-      ),
-      router_redirect: (props, { renderChildren }) => (
-        <Redirect {...props}>{renderChildren()}</Redirect>
-      ),
-      router_route: (props, { renderChildren }) => (
-        <Route {...props}>{renderChildren()}</Route>
-      ),
-      router_switch: (props, { renderChildren }) => (
-        <Switch {...props}>{renderChildren()}</Switch>
       ),
     },
   };

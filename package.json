@@ -1,6 +1,6 @@
 {
   "name": "@vanekt/rendero-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "vanekt",
   "license": "MIT",
   "devDependencies": {
@@ -19,8 +19,7 @@
     "lint": "eslint src --ext .js,.jsx --config .eslintrc.js"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-router-dom": "^6.14.2"
+    "react": "^18.2.0"
   },
   "description": ""
 }
