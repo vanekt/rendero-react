@@ -1,6 +1,6 @@
 {
   "name": "@vanekt/rendero-react",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "vanekt",
   "license": "MIT",
   "devDependencies": {
@@ -22,5 +22,8 @@
   "description": "",
   "peerDependencies": {
     "react": ">=17.0.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
