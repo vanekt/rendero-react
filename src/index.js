@@ -16,8 +16,8 @@ function initModule() {
     components: {
       null: () => null,
       text_node: ({ value }) => value,
-      fragment: (props, { renderChildren }) => (
-        <Fragment {...props}>{renderChildren()}</Fragment>
+      fragment: ({ key }, { renderChildren }) => (
+        <Fragment key={key}>{renderChildren()}</Fragment>
       ),
       div: (props, { renderChildren }) => (
         <div {...props}>{renderChildren()}</div>
