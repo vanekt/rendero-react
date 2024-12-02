@@ -19,16 +19,36 @@ function initModule() {
       fragment: ({ key }, { renderChildren }) => (
         <Fragment key={key}>{renderChildren()}</Fragment>
       ),
-      div: (props, { renderChildren }) => (
-        <div {...props}>{renderChildren()}</div>
+      div: ({ key, ...props }, { renderChildren }) => (
+        <div key={key} {...props}>
+          {renderChildren()}
+        </div>
       ),
-      span: (props, { renderChildren }) => (
-        <span {...props}>{renderChildren()}</span>
+      span: ({ key, ...props }, { renderChildren }) => (
+        <span key={key} {...props}>
+          {renderChildren()}
+        </span>
       ),
-      ul: (props, { renderChildren }) => <ul {...props}>{renderChildren()}</ul>,
-      ol: (props, { renderChildren }) => <ol {...props}>{renderChildren()}</ol>,
-      li: (props, { renderChildren }) => <li {...props}>{renderChildren()}</li>,
-      if: (props, { renderChildren }) => <IF {...props}>{renderChildren()}</IF>,
+      ul: ({ key, ...props }, { renderChildren }) => (
+        <ul key={key} {...props}>
+          {renderChildren()}
+        </ul>
+      ),
+      ol: ({ key, ...props }, { renderChildren }) => (
+        <ol key={key} {...props}>
+          {renderChildren()}
+        </ol>
+      ),
+      li: ({ key, ...props }, { renderChildren }) => (
+        <li key={key} {...props}>
+          {renderChildren()}
+        </li>
+      ),
+      if: ({ key, ...props }, { renderChildren }) => (
+        <IF key={key} {...props}>
+          {renderChildren()}
+        </IF>
+      ),
       switch: ({ cases, value, _default }, { render, renderChildren }) => {
         const children = renderChildren();
         const index = cases.findIndex((i) => i === value);
@@ -45,8 +65,10 @@ function initModule() {
         renderChildren({
           [name]: value,
         }),
-      react_use_state: (props, { renderChildren }) => {
-        return <ReactUseState {...props} renderChildren={renderChildren} />;
+      react_use_state: ({ key, ...props }, { renderChildren }) => {
+        return (
+          <ReactUseState key={key} {...props} renderChildren={renderChildren} />
+        );
       },
       forward_props: ({ getter, ...props }, { children, renderChildren }) =>
         renderChildren(children, {
